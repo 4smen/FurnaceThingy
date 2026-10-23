@@ -1,0 +1,10 @@
+using System;
+using UnityEngine.Rendering;
+
+[Serializable]
+[VolumeComponentMenu("Custom/SphereVolumeComponent")] // This name can be changed
+public class SphereVolumeComponent : VolumeComponent, IPostProcessComponent
+{
+    public ClampedFloatParameter intensity = new ClampedFloatParameter(value: 0, min: 0, max: 1, overrideState: true);
+    public bool IsActive() => intensity.value > 0;
+}
